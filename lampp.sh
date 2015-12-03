@@ -1,3 +1,8 @@
+if [[ $EUID -ne 0 ]]; then
+ echo "This script must be run as root" 1>&2
+ exit 1
+fi
+
 a=(apache2 libapache2-mod-php5 curl mysql-server php5-mysql phpmyadmin php5-mcrypt)
 
 # libapache2-mod-auth-mysql no more needed
